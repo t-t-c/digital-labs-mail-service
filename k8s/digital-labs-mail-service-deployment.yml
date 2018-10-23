@@ -1,0 +1,32 @@
+apiVersion: apps/v1beta2 # for versions before 1.8.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: digital-labs-mail-service-deployment
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: digital-labs-mail-service
+  template:
+    metadata:
+      labels:
+        app: digital-labs-mail-service
+    spec:
+      containers:
+      - name: digital-labs-mail-service
+        image: techtrainigcenter/digital-labs-mail-service:1.0
+        ports:
+        - containerPort: 8090
+        readinessProbe:
+          tcpSocket: 
+            port: 8090
+          initialDelaySeconds: 20
+          periodSeconds: 10
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "0.25"
+          limits: 
+            memory: "1Gi" 
+            cpu: "1" 

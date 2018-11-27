@@ -16,7 +16,7 @@ import com.sendgrid.SendGrid;
 public class EmailService {
 	
 	private static final String MATIL_TO = "ttc@sk.com";
-	private static final String API_KEY = "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";
+	private static final String API_KEY = "";
 
 	public void sendEmail(com.skcc.dtlabs.mail.vo.Email email) throws IOException {
 		Email from = new Email(email.getEmail());

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: digital-labs-mail-service
-        image: techtrainigcenter/digital-labs-mail-service:1.0
+        image: registry.au-syd.bluemix.net/ttc-registry/digital-labs-mail-service:1.0
         ports:
         - containerPort: 8090
         readinessProbe:
@@ -30,3 +30,5 @@ spec:
           limits: 
             memory: "1Gi" 
             cpu: "1" 
+      imagePullSecrets:
+      - name: ttc-reg-secret2
